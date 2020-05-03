@@ -18,3 +18,4 @@ def author_details(request, id):
     author = Author.objects.get(id=id)
     recipe_data = RecipeItem.objects.all()
     return render(request, "author_details.html", {"author": author, "recipe_data": recipe_data})
+

@@ -1,14 +1,18 @@
-<h1>Hello, World!</h1>
+<h1>Welcome To Patrick's Vegan Recipe Box!</h1>
 
 <ul>
-    {% for item in data %}
+    {% for item in recipe_data %}
         <li>
-            {{ item.title}} | by {{ item.author.name}}
+            <h2 class='recipes'>
+                <a href='recipes/{{item.id}}/'>{{ item.title }}</a> | by <a
+                    href='authors/{{item.author.id}}'>{{ item.author.name }}</a>
+            </h2>
             <ul>
                 <li>
                     {{ item.description }}
                 </li>
             </ul>
         </li>
+
     {% endfor %}
 </ul>

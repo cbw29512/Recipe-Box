@@ -1,5 +1,6 @@
 from django.db import models
 
+
 """
 Author model:
     Name (CharField)
@@ -22,8 +23,9 @@ class Author(models.Model):
         return self.name
 
 
+
 class RecipeItem(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=50)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = models.TextField()
     time = models.CharField(max_length=30)

@@ -1,5 +1,7 @@
 <h1>Welcome To Patrick's Vegan Recipe Box!</h1>
 
+<p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
+
 <ul>
     {% for item in recipe_data %}
         <li>

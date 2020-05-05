@@ -1,11 +1,18 @@
-<h1>{{ author.name }}</h1>
-<h2>{{ author.bio }}</h2>
-<h2>Recipes by {{ author.name }}:</h2>
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
 
-<ul>
-    {% for recipe in recipe_data %}
-        {% if recipe.author == author %}
-            <li><a href="{% url 'recipe_details' id=recipe.id %}"> {{ recipe.title }}</a> </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+<div class="card">
+    <h1>{{ author.name }}</h1>
+    <h2>{{ author.bio }}</h2>
+    <h2>Recipes by {{ author.name }}:</h2>
+
+    <ul>
+        {% for recipe in recipe_data %}
+            {% if recipe.author == author %}
+                <li><a href="{% url 'recipe_details' id=recipe.id %}"> {{ recipe.title }}</a> </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

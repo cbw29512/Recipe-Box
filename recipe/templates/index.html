@@ -1,20 +1,29 @@
-<h1>Welcome To Patrick's Vegan Recipe Box!</h1>
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+</head>
 
-<p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
+<html>
+    <h1>Welcome To Patrick's Vegan Recipe Box!</h1>
 
-<ul>
-    {% for item in recipe_data %}
-        <li>
-            <h2 class='recipes'>
-                <a href='recipes/{{item.id}}/'>{{ item.title }}</a> | by <a
-                    href='authors/{{item.author.id}}'>{{ item.author.name }}</a>
-            </h2>
-            <ul>
+    <p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
+
+    <div class="card">
+        <ul>
+            {% for item in recipe_data %}
                 <li>
-                    {{ item.description }}
+                    <h2 class='recipes'>
+                        <a href='recipes/{{item.id}}/'>{{ item.title }}</a> | by <a
+                            href='authors/{{item.author.id}}'>{{ item.author.name }}</a>
+                    </h2>
+                    <ul>
+                        <li>
+                            {{ item.description }}
+                        </li>
+                    </ul>
                 </li>
-            </ul>
-        </li>
-
-    {% endfor %}
-</ul>
+            {% endfor %}
+        </ul>
+    </div>
+</html>

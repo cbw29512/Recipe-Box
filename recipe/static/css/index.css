@@ -4,10 +4,13 @@ html {
     text-align: center;
     color: rgb(250, 251, 252);
     height: 100%;
-    background-color: rgb(94, 148, 240);
+    /* background-color: rgb(94, 148, 240); */
+    background-image: url('https://mewallpaper.com/thumbnail/food/5222-strawberries-red-basket-with-dark-background-wallpaper-download-free.jpg');
   }
 
-.card {
+.basicbox {
+  margin: 90px;
+    padding: 20px;
     border: 1px solid #0c0c0c;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -17,3 +20,13 @@ html {
     text-align: left;
     color: rgb(17, 70, 123)
   }
+
+  /* Divider CSS */
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}

@@ -74,30 +74,6 @@ def author_details(request, id):
     return render(request, "author_details.html", {"author": author, "recipe_data": recipe_data})
 
 
-# @login_required
-# def author_add_views(request):
-#     html = "author_form.html"
-#     if request.user.is_staff == "POST":
-#         form = AuthorAddForm(request.POST)
-#         # form.save()
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             new_user = User.objects.create_user(
-#                 username=data['username'],
-#                 password=data['password']
-#             )
-#             Author.objects.create(
-#                 name=data['name'],
-#                 bio=data['bio'],
-#                 user=new_user
-#             )
-#             return HttpResponseRedirect(reverse('homepage'))
-
-#         form = AuthorAddForm()
-
-#     # return render(request, html, {'form': form})
-#         return render(request, html, {'form': form})
-#     return HttpResponseRedirect(reverse('homepage'))
 @login_required
 def author_add_views(request):
     if request.user.is_staff:

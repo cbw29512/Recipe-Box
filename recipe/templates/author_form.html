@@ -1,17 +1,17 @@
 {% load static %}
 <head>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"></head>
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 
-<body>
-    <div class="basicbox">
-        <form action="" method="post">
-            <!-- csrf_token helps prevent spamming of application -->
-            {% csrf_token %}
-            {{ form.as_p }} 
-            <input type="submit" value="Submit">
-        </form>
-    </div>
-</body>
+<html>
+    <body>
+        <div class="basicbox">
+            <form action="" method="post">
+                <!-- csrf_token helps prevent spamming of application -->
+                {% csrf_token %}
+                {{ form.as_p }} 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

@@ -10,7 +10,7 @@
             <h1>Welcome To Patrick's Vegan Recipe Box!</h1>
 
             {% if request.user.is_authenticated %}
-                Welcome Back, {{user.username}}!
+                <div class='title_div'>Welcome Back, {{user.username}}!</div>
                 &nbsp;
                 <p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
                 &nbsp;

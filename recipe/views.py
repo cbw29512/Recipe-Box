@@ -10,7 +10,9 @@ from recipe.forms import RecipeAddForm, AuthorAddForm, LoginForm
 def index(request):
     author = Author.objects.all()
     recipe = RecipeItem.objects.all()
-    return render(request, 'index.html', {"author_data": author, "recipe_data": recipe})
+    return render(
+        request, 'index.html', {"author_data": author, "recipe_data": recipe}
+    )
 
 
 def loginview(request):
@@ -19,7 +21,9 @@ def loginview(request):
         if form.is_valid():
             data = form.cleaned_data
             user = authenticate(
-                request, username=data["username"], password=data["password"]
+                request,
+                username=data["username"],
+                password=data["password"]
             )
             if user:
                 login(request, user)
@@ -49,7 +53,7 @@ def recipe_add_views(request):
     # POST request
     if request.method == "POST":
         form = RecipeAddForm(request.POST)
-        if form.is_valid(): # MUST DO before every POST request
+        if form.is_valid():                 # MUST DO before every POST request
             data = form.cleaned_data
             RecipeItem.objects.create(
                 title=data['title'],
@@ -58,7 +62,6 @@ def recipe_add_views(request):
                 author=data['author']
             )
             return HttpResponseRedirect(reverse("homepage"))
-
 
     # GET request
     form = RecipeAddForm()
@@ -71,7 +74,10 @@ def recipe_add_views(request):
 def author_details(request, id):
     author = Author.objects.get(id=id)
     recipe_data = RecipeItem.objects.all()
-    return render(request, "author_details.html", {"author": author, "recipe_data": recipe_data})
+    return render(
+        request, "author_details.html",
+        {"author": author, "recipe_data": recipe_data}
+    )
 
 
 @login_required

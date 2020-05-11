@@ -3,10 +3,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 </head>
 
-<div class="card">
+<div class="basicbox">
     <h1>{{ recipe.title }}</h1>
     <h2>{{ recipe.author }}</h2>
-    <h2><a href="{% url 'author_details' id=recipe.id %}"> {{ recipe.author }}</a></h2>
+    <h2><a href="{% url 'author_details' recipe.author.id %}"> {{ recipe.author }}</a></h2>
     <h2>Take Required: {{ recipe.time }}</h2>
 
     <h3>{{ recipe.description }}</h3>

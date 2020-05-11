@@ -1,13 +1,17 @@
 {% load static %}
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
 </head>
 
-<div class="card">
-    <form action="" method="post">
-        <!-- csrf_token helps prevent spamming of application -->
-        {% csrf_token %}
-        {{ form.as_p }} 
-        <input type="submit" value="Submit">
-    </form>
-</div>
+<html>
+    <body>
+        <div class="basicbox">
+            <form action="" method="post">
+                <!-- csrf_token helps prevent spamming of application -->
+                {% csrf_token %}
+                {{ form.as_p }} 
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </body>
+</html>

@@ -11,3 +11,4 @@ urlpatterns = [
     path('authoradd/', views.author_add_views, name="author_add_view")
     # path('admin/', admin.site.urls),
 ]
+

@@ -1,29 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-</head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"></head>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+<main>
+    <html>
+        <body>
+            <h1>Welcome To Patrick's Vegan Recipe Box!</h1>
 
-<html>
-    <h1>Welcome To Patrick's Vegan Recipe Box!</h1>
-
-    <p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
-
-    <div class="card">
-        <ul>
-            {% for item in recipe_data %}
-                <li>
-                    <h2 class='recipes'>
-                        <a href='recipes/{{item.id}}/'>{{ item.title }}</a> | by <a
-                            href='authors/{{item.author.id}}'>{{ item.author.name }}</a>
-                    </h2>
+            
+                <div class='title_div'>Welcome Back, {{user.username}}!</div>
+                &nbsp;
+                <p><a href="{% url 'author_add_view' %}"> Add Author</a> | <a href="{% url 'recipe_add_view' %}"> Add Recipe</a></p>
+                &nbsp;
+                <a href='login/'><button>Login</button></a> | <a href='logout/'><button>Logout</button></a>
+                &nbsp;
+                <div class="basicbox">
+                    <h2>Check Out Our Current Recipes Below!...</h2>
+                    <hr/>
+                    &nbsp;
                     <ul>
-                        <li>
-                            {{ item.description }}
-                        </li>
+                        {% for item in recipe_data %}
+                            <li>
+                                <h2 class='recipes'>
+                                    <a href='recipes/{{item.id}}/'>{{ item.title }}</a> | by <a
+                                        href='authors/{{item.author.id}}'>{{ item.author.name }}</a>
+                                </h2>
+                                <ul>
+                                    <li>
+                                        {{ item.date }}
+                                    </li>
+                                    <li>
+                                        {{ item.description }}
+                                    </li>
+                                </ul>
+                            </li>
+                        {% endfor %}
                     </ul>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-</html>
+                </div>
+            {% comment %} {% else %}
+                <a href='login/'>Login</a>
+                <!-- <a href='signup/'>Sign Up Now!</a> -->
+                &nbsp;
+                <div>
+                    <h3>Log In Or Sign Up To Gain Access To All Of Our Great Recipes!</h3>
+                </div> {% endcomment %}
+            
+            <!-- Logged In?: {{ request.user.is_authenticated }} -->
+
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+        </body>
+    </html>
+</main>

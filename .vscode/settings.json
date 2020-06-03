@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/home/chris/Desktop/KenzieQ4/Recipe-Box/myvenv/bin/python3",
+    "python.linting.flake8Enabled": true,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.enabled": true
+}
